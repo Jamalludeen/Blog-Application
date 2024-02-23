@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Share {{post.title}} {% endblock title %}
+
+{% block content %}
+<div class="container-fluid my-bg">
+    <div class="container my-bg" style="margin-top:90px; margin-bottom:30px;">
+        {% if sent %}
+            <h1>E-mail successfully sent</h1>
+        {% else %}
+            <div class="row align-content-center">
+                <div class="col-xs-12 col-md-5 col-lg-5">
+                    <img class="img-fluid" src="{% static "images/s.svg" %}" />
+                </div>
+                <div class="col-xs-12 col-md-7 col-lg-7">
+                    <h1>
+                        Share "{{post.title}} by e-mail"
+                    </h1>
+                    <form method="POST">
+                        {{form.as_p}}
+                        {% csrf_token %}
+                        {% comment %} <input class="send-email-btn" type='submit' value='Send e-mail' /> {% endcomment %}
+                        <button type='submit' class="send-email-btn">Send e-mail</button>
+                    </form>
+                </div>
+                
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock content %}

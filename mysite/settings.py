@@ -27,8 +27,9 @@ SECRET_KEY = 'django-insecure-q&l8xhsna+)$e8ipcc5r$@34#6kfg@+*#k297uz2z*8g_t6g@&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+SIDE_ID = 2
 
 # Application definition
 
@@ -40,8 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'django.contrib.postgres'
+    'django.contrib.postgres',
+    'taggit',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,7 +63,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +134,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'jamalghazniwal@gmail.com'
+EMAIL_HOST_PASSWORD = 'sjmy jxnz aijr bpze'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

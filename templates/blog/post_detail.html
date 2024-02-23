@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{post.title}}{% endblock title %}
+{% comment %} <div class="col-xs-12 col-md-12 mb-3 w-100"> {% endcomment %}
+{% block content %}
+    <div style="margin-top: 90px;" class="container">
+        <div class="row align-items-center">
+            <div class="col-xs-12 col-md-12 col-lg-6 mb-5">
+                <img src="{{ post.picture.url }}" class="card-img-top my-shadow" >
+            </div>
+            <div class="col-xs-12 col-md-12 col-lg-6 ">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold my-margin pb-2">{{ post.title }}</h5>
+                    <h5 class="card-title my-margin pt-2 text-muted">
+                      Published {{ post.publish }} by<span class="">{{ post.author }},
+                      </span>
+                    </h5>
+                    <p class="text-muted">
+                      Tags: {{post.tags.all|join:", "}}
+                    </p>
+                    <p class="card-tex my-margint"> {{ post.body }}</p>
+                    <div class="my-footer d-flex justify-content-between align-items-center">
+                        <p class="fw-bold">
+                            <a type="button" class="share-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add comment</a>
+                             <a class="share-btn" href="{% url "blog:post_share" post.id %}">Share post</a>
+                             {% with comments.count as total_comments %}
+                                <a type="button" class="share-btn" data-bs-toggle="modal" data-bs-target="#exampleModali">Comments</a><span class=" badge rounded bg-dark">{{ total_comments }}</span>
+                            {% endwith %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4>Posts with the same tag</h4>
+        {% for post in similar_posts %}
+          <a href="{{post.get_absolute_url}}">
+            {{post.title}}<br>
+          </a>
+        {% empty %}
+        <p>No similar post yet<p>
+        {% endfor %}
+
+    </div>
+
+
+    <div class="modal modal-xl fade modal-fullscreen" id="exampleModali" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">All Comments</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body w-100">
+                {% for comment in comments %}
+                    <div class="card w-100">
+                    <div class="card-header w-100">
+                        Comment {{ forloop.counter }} by {{ comment.name }}
+                    </div>
+                    <div class="card-body w-100">
+                        <h5 class="card-title">{{ comment.created }}</h5>
+                        <p class="card-text">{{ comment.body|linebreaks }}</p>
+                        {% comment %} <a href="#" class="share-btn">Go somewhere</a> {% endcomment %}
+                    </div>
+                    </div>
+                    <br>
+                {% empty %}
+                    <p>There are no comments.</p>
+                {% endfor %} 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div class="modal fade mt-5 " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header ">
+          <h5 class="modal-title" id="exampleModalLabel">What's in your mind?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{% url "blog:post_comment" post.id %}"  >
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input required name='name' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Email</label>
+                <input required name='email' type="email" class="form-control" id="exampleInputPassword1">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3 ">
+                <label for="exampleInputPassword1" class="form-label">Body</label>
+                <input required name='body' type="text" class="form-control" id="exampleInputPassword1">
+            </div>
+            <input type="submit" class="btn btn-success btn-sm" value="Submit"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock content %}

@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+    <section class="mt-5 py-5" id='header'>
+        <div class="container">
+            <div class="row gx-5 align-items-center">
+                <div class="col-md-12 col-lg-5 offset-md-1 mt-4 mb-4">
+                    <img src="{% static "images/h.svg" %}" class="img-fluid">
+                </div>
+                <div style="font-size:18px;" class="col-md-12 col-lg-6 ">
+                    <h1>Expand Your Knowledge With Us</h1>
+                    <p  class="my-3 text-muted">Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <section class="py-5 px-3">
+        <h2 class="text-center text-center">Our Services</h2>
+        <p class="my-3 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
+        <div class="row text-center p-5">
+          <div class="col-md-6 col-lg-4">
+            <div class="servise-box border-primary p-5">
+              <h3>Create</h3>
+              <p class="pt-3 pb-5">Lorem ipsum dolor sit amet ut voluptatum</p>
+              <a class="read-more text-primary"><span>Read More</span></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="servise-box border-success p-5">
+              <h3>Share</h3>
+              <p class="pt-3 pb-5">Lorem ipsum dolor sit amet ut voluptatum</p>
+              <a class="read-more text-success"><span>Read More</span></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="servise-box border-warning p-5">
+              <h3>Comment</h3>
+              <p class="pt-3 pb-5">Lorem ipsum dolor sit amet ut voluptatum</p>
+              <a class="read-more text-warning"><span>Read More</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="my-5">
+        <div class="container">
+          <div class="row align-items-center gy-5">
+            <div class="col-order_1 col-md-6">
+              <h3 class="mb-3 fs-1"><b>Share what you know </b></h3>
+              <p class="text-muted">Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
+            <div class="col-order_2 col-md-6">
+                <img src="{% static "images/sk.svg" %}" class="img-fluid">
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-5 px-3">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-6">
+              <h2 class="text-center lalezar">Frequently Asked Questions</h2>
+              <p class="text-justify my-3">Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl Mauris neque quam</p>
+            </div>
+            <div class="col-12 col-md-6">
+              <img src="{% static "images/faq.png" %}" class="img-fluid">
+            </div>
+            <div class="col-12">
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Mauris neque quam, fermentum ut nisl vitae
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <p>
+                        Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Fermentum ut nisl vitae, convallis maximus nisl
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Incidunt et ea quo dolore laudantium consectetur!
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapseThree">
+                        Totam reiciendis temporibus qui quibusdam
+                    </button>
+                  </h2>
+                  <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit
+                    </button>
+                  </h2>
+                  <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>Sunt ut voluptatum</strong>eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <footer class="py-5 px-3">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-5">
+              <h4>www.myblog.com</h4>
+              <p class="text-muted">incidunt et ea quo dolore laudantium consectetur!</p>
+              <p>
+                <a href="{% url "blog:post_feed" %}">
+                  Subscribe to my RSS feed
+                </a>
+              </p>
+            </div>
+            <div class="col-lg-3 offset-lg-1">
+              <h4 class="fw-bold border-bottom border-4 border-warning pb-3 w-75">Links</h4>
+              <p>
+                <a class="my-link" href="{% url "blog:home" %}">Home</a>
+              </p><p>
+                <a class="my-link" href="{% url "blog:post_list" %}">Posts</a>
+              </p>
+            </div>
+            <div class="col-lg-3">
+              <h4 class="fw-bold border-bottom border-4 border-success pb-3 w-75">Services</h4>
+              <p>Educational Articles</p>
+              <p>Add Articles</p>
+              <p>Share Your Thoughts</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+<div class="container text-center" style="margin-top:90px;">
+    <form method="POST">
+        {% csrf_token %}
+
+        <input name="query" placeholder="search" class="w-75 search-elem px-3 py-2" type="search" >
+        <button type="submit" class="search-btn px-3 py-2">Search</button>
+
+    </form>
+</div>
+<div class="container mt-4">
+    {% if query %}
+        {% if posts %}
+            <h1> Results for "{{query}}" </h1>
+            <div style="margin-top: 60px;" class="container-fluid ">
+                <div class="row mb-4 w-100 ">
+                    <div class="col my-width">
+                        <div class="col-xs-12 col-md-12 mb-3 ">
+                            <div class="row w-100 mx-auto">
+                                {% for post in posts %}
+                                    <div class="col-xs-12 col-md-12 col-lg-6 col-xl-4 mb-3">
+                                        <div class="card my-shadow" >
+                                            <div class="my-max-height">
+                                                <img src="{{ post.picture.url }}" class="card-img-top img-fluid new-max-height" >
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title fw-bold my-margin">{{ post.title }}</h5>
+                                                <h5 class="card-title my-margin text-muted">Published {{ post.publish }} by {{ post.author }},</h5>
+                                                <p class="text-muted">
+                                                    Tags: {{post.tags.all|join:", "}}
+                                                </p>
+                                                <p class="card-tex my-margint"> {{ post.body|truncatewords_html:30 }}</p>
+                                                
+                                                <div class="my-footer d-flex justify-content-between align-items-center">
+                                                    <a href="{{ post.get_absolute_url }}" id="read-btn">READ MORE ≫</a>
+                                                    {% with post.comments.count as total_comments %}
+                                                        <p class="fw-bold">Comments <span class=" badge rounded bg-dark">{{ total_comments }}</span> </p>
+                                                    {% endwith %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <h1>No Results for "{{query}}" </h1>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock content %}
+

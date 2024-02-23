@@ -1,0 +1,45 @@
+<nav id="my-nav" style="background-color: #ebf0fa;" class="navbar navbar-expand-md fixed-top mb-5">
+    <div class="container">
+      <a class="navbar-brand fs-3 lalezar fw-bold" href="#">My Blog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title fs-2 fw-bold" id="offcanvasNavbarLabel">My Blog</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+            
+            <li class="nav-item px-2">
+              <a class="nav-link text-dark  " aria-current="page" href="{% url "blog:home" %}">Home</a>
+            </li>
+            <li class="nav-item px-2">
+                <a class="nav-link text-dark " aria-current="page" href="{% url "blog:post_list" %}">All Posts</a>
+              </li>
+            <li class="nav-item px-2">
+                <a class="nav-link dropdown-toggle text-dark " href="#collapseExample" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="collapse" aria-expanded="false">
+                  More
+                </a>
+                <div class="collapse position-ms-fixed" id="collapseExample">
+                  <div class="course-list">
+                    <div class="course-list-item">
+                       <a href="{% url "blog:recent_post" %}" style="text-decoration:none;color:black;">
+                        <span class="fw-bold mx-2">Recently Added Posts</span>
+                      </a>
+                    </div>
+                    <div class="course-list-item">
+                      <a href="{% url "blog:search_post" %}" style="text-decoration:none;color:black;">
+                       <span class="fw-bold mx-2">Search Post</span>
+                     </a>
+                   </div>
+                  </div>
+                </div>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div id="scrollelem"></div>
